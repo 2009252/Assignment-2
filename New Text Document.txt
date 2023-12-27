@@ -1,0 +1,1 @@
+Create a Python application which consumes a RESTful web service. You should define the purpose and scope of this application and do not need to create the web service itself. using the API: https://place.dog/
