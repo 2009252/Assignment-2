@@ -1,4 +1,9 @@
 import requests
 
 def domain_search(domain_name):
-    api_url = f"https://domains.google.com/v2alpha1/registrations/{domain_name}:checkAvailability"
+    api_url = f"https://api.domainsdb.info/v1/domains/search?domain={domain_name}:checkAvailability"
+
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as errh:
