@@ -1,8 +1,7 @@
 import requests
 
-def domain_search(domain_name):
-    api_url = f"https://domains.google.com/v2alpha1/registrations/{domain_name}:checkAvailability"
-
+def Domain_search(domain_name):
+    api_url = f"https://api.domainsdb.info/v1/domains/search?domain={domain_name}:checkAvailability"
 
     try:
         response = requests.get(api_url)
@@ -13,3 +12,10 @@ def domain_search(domain_name):
     except requests.exceptions.ConnectionError as errc:
         print(f"Error Connecting: {errc}")
         return False
+    except requests.exceptions.Timeout as errt:
+        print(f"Timeout Error: {errt}")
+        return False
+    except requests.exceptions.RequestException as err:
+        print(f"Error: {err}")
+        return False
+
