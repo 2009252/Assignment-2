@@ -1,7 +1,8 @@
 import requests
 
-def Domain_search(domain_name):
-    api_url = f"https://api.domainsdb.info/v1/domains/search?domain={domain_name}:checkAvailability"
+
+def check_domain_availability(domain_name):
+    api_url = f"https://api.domainsdb.info/v1/domains/search?domain={domain_name}"
 
     try:
         response = requests.get(api_url)
@@ -18,4 +19,3 @@ def Domain_search(domain_name):
     except requests.exceptions.RequestException as err:
         print(f"Error: {err}")
         return False
-
