@@ -19,3 +19,14 @@ def check_domain_availability(domain_name):
     except requests.exceptions.RequestException as err:
         print(f"Error: {err}")
         return False
+    try:
+        response = requests.get(api_url)
+        data = response.json()
+
+        if data['total'] > 0:
+            print(f"Sorry, the domain '{domain_name}' is not available.")
+        else:
+            print(f"The domain '{domain_name}' is available!")
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
